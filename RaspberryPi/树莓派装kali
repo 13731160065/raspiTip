@@ -9,3 +9,8 @@
 然后就是写镜像，打开win32diskimager，点那个文件夹图标📁，选择你的镜像，确认"Drive"的位置是你的tf卡，可别整错了，然后点下边的Write来写入镜像，等大概1个多小时之后……😄，反正就是等好久之后，弹出什么success就是你成功了
 开机试试，前提是你要有个hdmi屏幕，不然开机干啥，开机后让你填账号密码，kali默认使用root账号，密码是toor，至此你就成功在树莓派上装上了kali
 kali是干嘛的？是一个集成各种网络安全软件的linux系统，具体可以去kali.org官网上瞅瞅。好了，开启黑客模式😈
+
+中文显示问题，如果你选择中文后出现乱码问题，你可以执行以下命令:
+apt-get install ttf-wqy-microhei
+如果问题仍然存在，你还可以再用apt-get install安装以下模块:
+ttf-wqy-zenhei xfonts-wqy
