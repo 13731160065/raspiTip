@@ -1,0 +1,30 @@
+安装nginx
+sudo apt-get install nginx
+
+启动nginx
+sudo /etc/init.d/nginx start
+nginx的www根目录默认在 /usr/share/nginx/www中
+
+修改nginx的配置文件
+sudo vi /etc/nginx/sites-available/default
+以下几个选项注意一下：
+1.配置端口号和支持index.php
+listen 8080; ## listen for ipv4; this line is default and implied
+#监听的端口号，如果与其它软件冲突，可以在这里更改
+root /usr/share/nginx/www;
+#nginx 默认路径html所在路径
+index index.html index.htm index.php;
+#nginx默认寻找的网页类型，我们可以增加一个index.php
+2.PHP脚本支持
+找到php的定义段，将这些行的注释去掉 ，修改后内容如下
+location ~ .php$ {
+　fastcgi_pass unix:/var/run/php5-fpm.sock;
+　fastcgi_index index.php;
+　include fastcgi_params;
+}
+php段中有一些其它定义，不要去动它，比如：
+#      fastcgi_split_path_info ...
+#      fastcgi_pass 127.0.0.1:9000
+
+安装php和sqlite
+sudo apt-get install php5-fpm php5-sqlite
