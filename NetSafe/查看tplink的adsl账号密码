@@ -1,0 +1,6 @@
+1.进入tplink路由器后台
+2.点系统工具
+3.找到备份相关的配置页面
+4.点到处配置
+5.会下载一个叫做config.bin的东西，然后用以下命令即可查看文件中的内容
+openssl enc -d -des-ecb -nopad -K 478DA50BF9E3D2CF -in config.bin
