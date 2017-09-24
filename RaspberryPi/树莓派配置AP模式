@@ -1,2 +1,17 @@
 搬运工
+
+1.
 http://blog.csdn.net/xukai871105/article/details/42497097/
+
+2.
+今天刚好买了2年的无线AP坏了，就琢磨着把手上的pi3打造成无线AP，节省一笔费用。看网上的教程都是用hostapd和isc-dhcp-server来搞，对着教程敲了一大堆命令折腾了三个小时无果，看网上都是针对的pi2用usb网卡整的，而pi3自带wifi，可能pi3不适用吧。于是网上各种搜，最后在github上发现神器create_ap，好家伙，看着安装方法好简单。废话不多说，下面上干货：
+1.git clone https://github.com/oblique/create_ap.git
+2.cd create_ap
+3.sudo make install就这样安装好了
+4.接下来安装依赖库sudo apt-get install util-linux procps hostapd iproute2 iw haveged dnsmasq
+5.就这么简单几个命令就能安装好全部环境
+6.接下来保证你的网线插在pi3上并且能上网就行了。输入下面的命令启动无线AP：
+sudo create_ap wlan0 eth0 热点名 密码
+接下来就去打开手机wifi看看有没有上面命令中设置的热点名吧，有的话输入密码即可连接上，enjoy your PI3 wireless AP！
+可以把上述的启动命令添加到/etc/rc.local就可以开机自启动了。
+是不是很简单，这个AP的局域网无线传输速度居然比我原来那个老AP还快一倍，也算是惊喜了，从此我的树莓派3又增加了一个功能。
