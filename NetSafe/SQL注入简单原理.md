@@ -49,6 +49,10 @@ SQL注入就是利用后台接口中的参数，配合SQL语法，猜想后台�
 
 `delete * from tabname where id=123;`
 
+这时只删除了id为123的项
+
 当我传入id=`123123123 or 1` 时：
 
-`delete `
+`delete * from tabname where id=123123123 or 1`
+
+这时会删除id为123123123或true，如果id找到了123123123，那么123123123会被删除，如果没找到，走了
