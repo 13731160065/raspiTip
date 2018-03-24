@@ -59,4 +59,6 @@ SQL注入就是利用后台接口中的参数，配合SQL语法，猜想后台�
 
 **如何在一个url里传入sql注入的东西呢？**
 
-拿
+拿`http://api.abc.com?name=haha`请求为例，做一个这样的请求`http://api.abc.com?name=1%27%20or%20id%20like%20%27%25a%25%27%20%23`
+
+解我来
